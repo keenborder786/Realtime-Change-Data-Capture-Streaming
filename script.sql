@@ -1,3 +1,18 @@
+CREATE TABLE IF NOT EXISTS transactions (
+            transaction_id VARCHAR(255) PRIMARY KEY,
+            user_id VARCHAR(255),
+            timestamp TIMESTAMP,
+            amount DECIMAL,
+            currency VARCHAR(255),
+            city VARCHAR(255),
+            country VARCHAR(255),
+            merchant_name VARCHAR(255),
+            payment_method VARCHAR(255),
+            ip_address VARCHAR(255),
+            voucher_code VARCHAR(255),
+            affiliateId VARCHAR(255)
+        );
+
 -- add columns
 ALTER TABLE transactions add column modified_by TEXT;
 ALTER TABLE transactions add column modified_at TIMESTAMP;

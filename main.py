@@ -24,30 +24,6 @@ def generate_transaction():
         'affiliateId': fake.uuid4()
     }
 
-def create_table(conn):
-    cursor = conn.cursor()
-
-    cursor.execute(
-        """
-        CREATE TABLE IF NOT EXISTS transactions (
-            transaction_id VARCHAR(255) PRIMARY KEY,
-            user_id VARCHAR(255),
-            timestamp TIMESTAMP,
-            amount DECIMAL,
-            currency VARCHAR(255),
-            city VARCHAR(255),
-            country VARCHAR(255),
-            merchant_name VARCHAR(255),
-            payment_method VARCHAR(255),
-            ip_address VARCHAR(255),
-            voucher_code VARCHAR(255),
-            affiliateId VARCHAR(255)
-        )
-        """)
-
-    cursor.close()
-    conn.commit()
-
 if __name__ == "__main__":
     conn = psycopg2.connect(
         host='localhost',
@@ -56,8 +32,6 @@ if __name__ == "__main__":
         password='postgres',
         port=5432
     )
-
-    create_table(conn)
 
     transaction = generate_transaction()
     cur = conn.cursor()
