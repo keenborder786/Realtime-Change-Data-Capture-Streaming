@@ -1,7 +1,5 @@
 # Realtime-Change-Data-Capture-Streaming
 
-![alt text](image.png)
-
 
 ## System Architecture
 ![alt text](./assets/architecture.png)
